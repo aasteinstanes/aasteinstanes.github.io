@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="no" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Min bursdag</title>
+  </head>
+  <body style="background-color:pink;font-family:times; padding:10px;">
+
+    <h1>Min bursdag</h1>
+
+    <form action="register.html">
+
+    <p style="padding:30px;">
+      <label>Navn:</label>
+      <input type="tekst" name="navn" required placeholder="Skriv inn navn">
+      <label>alder:</label>
+      <input type="number" name="alder" required placeholder="Skriv din alder">
+      <br>
+      <br>
+
+      <label>Hva vil du spise</label>
+      <br>
+      <input type="radio" value="pølser" name="rbMat"><label>Pølser</label>
+      <input type="radio" value="burger" name="rbMat"><label>Burger</label>
+      <input type="radio" value="grillspyd" name="rbMat"><label>Grillspyd</label>
+      <br>
+      <label>Hva slags tilbehør vil du ha?</label>
+      <br>
+      <input type="radio" value="pastasalat" name="rbTilbehør"><label>Pastasalat</label>
+      <input type="radio" value="potetsalat" name="rbTilbehør"><label>Potetsalat</label>
+      <br>
+      <br>
+
+      <label>Hva vil du drikke?</label>
+      <br>
+      <select name="velgDrikke">
+        <option value="">Hva vil du drikke?</potion>
+        <option value="Cola">Cola</option>
+        <option value="Fanta">Fanta</option>
+        <option value="Solo">Solo</option>
+      </select>
+      <br>
+      <br>
+
+      <label>Hvilken dato passer best for deg?</label>
+      <input type="date">
+      <br>
+      <label>Tar du med en ekstra gjest</label>
+      <input type="radio" value="ja" name="ja/nei"><label>Ja</label>
+      <input type="radio" value="nei" name="ja/nei"><label>Nei</label>
+
+      <br>
+      <br>
+      <label>Hvor mye gleder du deg?</label>
+      <input type="range">
+      <br>
+    </p>
+
+      <label>Skriv inn passord</label>
+      <input type="password">
+
+
+      <br>
+      <br>
+      <button type="submit">Send inn</button>
+
+
+    </form>
+  </body>
+</html>
