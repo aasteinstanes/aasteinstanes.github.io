@@ -1,0 +1,21 @@
+body{
+  background-color:#3E5271;
+}
+main{
+  color: white;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: times,verdana,sans-serif;
+}
+a{
+  color: white;
+}
+img{
+  width:150px;
+  height:150px;
+}
+.rundtBilde{
+  border-radius: 50%;
+  border:5px solid black;
+}
