@@ -1,0 +1,20 @@
+body{
+  background-color:#ADB5B9;
+  margin-left: 75px;
+  margin-right: 75px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+p,li{
+  color:#762813;
+}
+main{
+  margin-left: 10px;
+  margin-right: 10px;
+}
+header{
+  margin-bottom: 25px;
+}
+h1,h2{
+  color: #EB4F25;
+}
