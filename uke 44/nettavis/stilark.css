@@ -1,0 +1,60 @@
+body{
+  padding-top: 20px;
+  font-family:"century", serif;
+  margin: 0px;
+}
+header{
+  position: fixed;
+  top:0px;
+  width: 100%;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 2fr 5fr 1fr 1fr 1fr;
+  background-color: #A0847A;
+  margin-bottom: 5px;
+}
+header>.lenke{
+  align-self: center;
+}
+a{
+  color: white;
+  text-decoration: none;
+}
+#logo>h3{
+  font-size: 32px;
+  color: white;
+  font-family: fantasy;
+  margin: 15px;
+}
+
+main{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-gap: 5px;
+  grid-auto-rows: minmax(70px,auto)
+}
+main>section{
+  background-color: pink;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.middelssak{
+  grid-column: span 2;
+  grid-row: span 2;
+  color: green;
+}
+.litensak{
+  grid-column: span 1;
+  grid-row: span 1;
+  color: blue;
+}
+.storsak{
+  grid-column: span 3;
+  grid-row: span 3;
+  color: white;
+}
+img{
+  width: 100%;
+}

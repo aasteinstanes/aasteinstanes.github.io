@@ -1,0 +1,43 @@
+body{
+
+}
+header>.forside{
+  display: grid;
+  grid-template-columns: repeat(4,1fr)
+}
+header>.toppprodukter{
+  display: grid;
+  grid-template-columns: repeat(7,1fr)
+}
+.Logo{
+  grid-column: span 4;
+  grid-row: span 1;
+}
+.topplogo{
+  grid-column: span 3;
+  grid-row: span 1;
+}
+.Produkter1{
+  grid-column: span 1;
+  grid-row: span 1;
+}
+main>.tre{
+  display: grid;
+  grid-template-columns: repeat(3,1fr)
+}
+main>.fire{
+  display: grid;
+  grid-template-columns: repeat(4,1fr)
+}
+.stortbilde{
+  grid-column: span 2;
+  grid-row: span 2;
+}
+.litebilde{
+  grid-column: span 1;
+  grid-row: span 1;
+}
+.stortekst{
+  grid-column: span 3;
+  grid-row: span 1;
+}
