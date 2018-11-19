@@ -1,13 +1,16 @@
-body{
-
+main,header{
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-top: 25px;
+  margin-bottom: 25px;
 }
 header>.forside{
   display: grid;
-  grid-template-columns: repeat(4,1fr)
+  grid-template-columns: repeat(4,1fr);
 }
 header>.toppprodukter{
   display: grid;
-  grid-template-columns: repeat(7,1fr)
+  grid-template-columns: repeat(7,1fr);
 }
 .Logo{
   grid-column: span 4;
@@ -16,18 +19,20 @@ header>.toppprodukter{
 .topplogo{
   grid-column: span 3;
   grid-row: span 1;
+  margin-bottom: 15px;
 }
 .Produkter1{
   grid-column: span 1;
   grid-row: span 1;
+  margin-bottom: 15px;
 }
 main>.tre{
   display: grid;
-  grid-template-columns: repeat(3,1fr)
+  grid-template-columns: repeat(3,1fr);
 }
 main>.fire{
   display: grid;
-  grid-template-columns: repeat(4,1fr)
+  grid-template-columns: repeat(4,1fr);
 }
 .stortbilde{
   grid-column: span 2;
@@ -40,4 +45,60 @@ main>.fire{
 .stortekst{
   grid-column: span 3;
   grid-row: span 1;
+  background-color: #996574;
+  color: white;
+  font-size: 26px;
+  text-align: center;
+  padding-top:5px;
+  padding-bottom: 5px;
+  margin-bottom: 4px;
+  font-weight: bold;
+}
+.stortekst2{
+  grid-column: span 4;
+  grid-row: span 1;
+  background-color: #996574;
+  color: white;
+  font-size: 26px;
+  text-align: center;
+  padding-top:5px;
+  padding-bottom: 5px;
+  margin-bottom: 4px;
+  font-weight: bold;
+}
+.tekstpris{
+  font-size: 15px;
+  margin-bottom: 20px;
+  font-family:serif;
+  color: #6E2F41;
+}
+.tekstnavn{
+  font-size: 17px;
+  font-family: serif;
+  color: #6E2F41;
+  font-weight: bold;
+  font-style: italic;
+}
+footer{
+  background-color: #996574;
+}
+footer>.bunn{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.bunn2{
+  text-align: center;
+  margin-top: 3px;
+}
+.bunntekst1{
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 3px;
+}
+.bunntekst2{
+  font-size: 15px;
+  color: lightgrey;
 }
