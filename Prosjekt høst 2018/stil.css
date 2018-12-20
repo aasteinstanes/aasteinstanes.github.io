@@ -1,10 +1,11 @@
+
+/*Her starter css'en for headeren*/
 header>.forside{
   display: grid;
   grid-template-columns: repeat(5,1fr);
   position: fixed;
   width:100%;
   top: 0;
-  background-color:white;
   background-color: #F4D8DB;
   text-align: center;
   padding-top: 15px;
@@ -24,6 +25,12 @@ header>.forside{
     position:static;
     display: inline-block;
 }
+.dropdown:hover .dropdown-content {
+    display:block;
+}
+.dropdown:hover{
+  font-style: italic;
+}
 .dropdown-content {
     display: none;
     position: absolute;
@@ -34,8 +41,9 @@ header>.forside{
     padding-right: 4px;
     z-index: 1;
 }
-.dropdown:hover .dropdown-content {
-    display:block;
+.dropdown-content>p:hover{
+  font-weight: bold;
+  color: #DFB9C4;
 }
 p{
   color: white;
@@ -44,6 +52,9 @@ a{
   text-decoration: none;
   color:#996574;
 }
+/*Her slutter css'en for headeren*/
+
+/*Her sterter css'en for main*/
 main{
   margin-left: auto;
   margin-right: auto;
@@ -51,33 +62,20 @@ main{
   margin-bottom: 25px;
   width: 1200px;
 }
+
+/*Her er css for main, forside*/
 main>.tre{
   display: grid;
   grid-template-columns: repeat(3,1fr);
-  padding-top: 25px;
-}
-main>.fire{
-  display: grid;
-  grid-template-columns: repeat(4,1fr);
   padding-top: 25px;
 }
 .stortbilde{
   grid-column: span 2;
   grid-row: span 2;
 }
-.middelbilde{
-  grid-column:span 1;
-  grid-row: span 2;
-}
 .litebilde{
   grid-column: span 1;
   grid-row: span 1;
-}
-.Tilbake{
-  grid-column: span 3;
-  grid-row: span 1;
-  margin-bottom: 25px;
-  font-size: 25px;
 }
 .stortekst{
   grid-column: span 3;
@@ -86,10 +84,41 @@ main>.fire{
   color: white;
   font-size: 26px;
   text-align: center;
-  padding-top:5px;
-  padding-bottom: 5px;
-  margin-bottom: 4px;
+  padding-top:15px;
+  padding-bottom:15px;
+  margin-bottom: 5px;
+  margin-top: 40px;
   font-weight: bold;
+}
+.bildetopp{
+  text-align: center;
+}
+.teksttopp{
+  padding-left: 60px;
+}
+.tekstnavn{
+  font-size: 17px;
+  font-family: serif;
+  color: #6E2F41;
+  font-weight: bold;
+  font-style: italic;
+}
+.tekstpris{
+  font-size: 15px;
+  margin-bottom: 20px;
+  font-family:serif;
+  color: #6E2F41;
+}
+.bildeforside{
+  margin-top: 40px;
+}
+/*Her slutter css for forside, main*/
+
+/*Her starter css for hovedsidene til bukser, kjoler, gensere og sko*/
+main>.fire{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  padding-top: 25px;
 }
 .stortekst2{
   grid-column: span 4;
@@ -101,25 +130,57 @@ main>.fire{
   padding-top:5px;
   padding-bottom: 5px;
   margin-bottom: 4px;
+  margin-top: 15px;
   font-weight: bold;
 }
-.tekstpris{
-  font-size: 15px;
-  margin-bottom: 20px;
-  font-family:serif;
-  color: #6E2F41;
+/*Jeg bruker også litebilde, tekstnavn, tekstpris,  */
+/*her slutter css for hovedsidene til bukser, kjoler, gensre og sko*/
+
+/*her sterter css for sidene av ett enkelt plagg*/
+.Tilbake{
+  grid-column: span 3;
+  grid-row: span 1;
+  margin-bottom: 25px;
+  font-size: 25px;
 }
-.tekstnavn{
-  font-size: 17px;
-  font-family: serif;
-  color: #6E2F41;
-  font-weight: bold;
-  font-style: italic;
+.middelbilde{
+  grid-column:span 1;
+  grid-row: span 2;
 }
+    .bildebukse1{
+      padding-left: 10px;
+    }
+    .bildebukse2,.bildebukse3{
+      margin-left: 70px;
+    }
+    .bildebukse3{
+      margin-top: 15px;
+    }
+
+    .bildegenser1{
+      margin-left: 20px;
+    }
+    .bildegenser2{
+      margin-left: 70px;
+    }
+
+    .bildekjole1{
+      margin-left: 35px;
+    }
+    .bildekjole2{
+      margin-left: 80px;
+    }
+    .bildesko2,.bildesko3{
+      margin-left: 50px;
+    }
+
+    .bildesko3{
+      margin-top: 5px;
+    }
+
 .klesinfo{
   grid-column:span 1;
   grid-row: span 2;
-  background-color: #E4DDDF;
   padding-left: 10px;
 }
 h1{
@@ -137,6 +198,58 @@ h1{
   color: #6E2F41;
   text-align: center;
 }
+option{
+  font-size: 15px;
+  text-align: center;
+}
+select{
+  width:90%;
+  height: 50px;
+  color:#B07584;
+}
+.størrelser{
+  padding-top: 30px;
+  text-align: center;
+  padding-bottom:30px;
+}
+.størrelser2{
+text-align: center;
+}
+label{
+  color: #6E2F41;
+  font-size: 20px;
+}
+.handlekurv{
+  text-align: center;
+  font-weight: bold;
+  font-size: 23px;
+  background-color:#986070;
+  color: white;
+  margin-left: 1px;
+  margin-right: 1px;
+  margin-top: 50px;
+  padding-top: 25px;
+  padding-bottom:25px;
+}
+
+/*jeg har i tilegg brukt tre, litebilde, stortekst2, bildetopp, tekstopp, tekstnavn, tekstpris*/
+/*her slutter css for sidene av ett enkelt plagg*/
+
+/*her starter css for utsolgt sidene*/
+.utsolgt2{
+  text-align: center;
+  font-size: 20px;
+}
+.utsolgt{
+  background-color: #BFA7AE;
+  padding-top: 50px;
+  padding-bottom: 375px;
+}
+/*jeg har også brukt h1 og p*/
+/*her slutter scc for utsolgt sidene*/
+/*Her slutter css for main*/
+
+/*Her starter css'en for footer*/
 footer{
   background-color: #996574;
 }
@@ -160,3 +273,4 @@ footer>.bunn{
   font-size: 15px;
   color: lightgrey;
 }
+/*Her slutter css'en for footer*/
