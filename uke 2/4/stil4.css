@@ -1,0 +1,41 @@
+body>.burger{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.bar1, .bar3{
+  background-color: #D6B486;
+  height: 8px;
+  width: 40px;
+  margin: 2px;
+  border-radius: 5px;
+}
+.bar2{
+  background-color: red;
+  height: 8px;
+  width: 40px;
+  margin: 2px;
+  border-radius: 5px;
+}
+.container {
+  display: inline-block;
+  cursor: pointer;
+}
+
+/* Rotate first bar */
+.change .bar1 {
+  -webkit-transform: rotate(-45deg) translate(-9px, 6px) ;
+  transform: rotate(-45deg) translate(-9px, 6px) ;
+}
+
+/* Fade out the second bar */
+.change .bar2 {
+  opacity: 0;
+}
+
+/* Rotate last bar */
+.change .bar3 {
+  -webkit-transform: rotate(45deg) translate(-8px, -8px) ;
+  transform: rotate(45deg) translate(-8px, -8px) ;
+}

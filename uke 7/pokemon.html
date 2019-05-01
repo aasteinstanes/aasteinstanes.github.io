@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="pokemon.css">
+    <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyA-KPOSe4jHVsiymPjl3tn8Qbypxqmp2Po",
+        authDomain: "pokemon-b644c.firebaseapp.com",
+        databaseURL: "https://pokemon-b644c.firebaseio.com",
+        projectId: "pokemon-b644c",
+        storageBucket: "",
+        messagingSenderId: "106775521188"
+      };
+      firebase.initializeApp(config);
+    </script>
+
+  </head>
+  <body>
+
+    <main>
+
+      <button type="button" class="button" name="button" onclick="sorterCP()">Lavest CP</button>
+      <button type="button" class="button" name="button" onclick="sorterNavnAE()">A-E</button>
+      <button type="button" class="button" name="button" onclick="sorterNavnFJ()">F-J</button>
+      <button type="button" class="button" name="button" onclick="sorterNavnKZ()">K-Z</button>
+      <button type="button" class="button" name="button" onclick="visAllePokemon()">Alle pokemon</button>
+      <button type="button" class="button" name="button" onclick="visGress()">Gress</button>
+
+
+
+      <section id="secPokemon">
+
+      </section>
+    </main>
+
+
+    <script type="text/javascript">
+
+      const db = firebase.database();
+      const pokemon = db.ref("pokemon");
+
+      const secPokemon = document.querySelector("#secPokemon");
+
+      function visPokemon(snapshot){
+        console.log(snapshot.val());
+        let key = snapshot.key;
+        let poke = snapshot.val();
+        secPokemon.innerHTML += `
+          <h1>${key}: ${poke.Name}</h1>
+          <img src="${poke["Image URL"]}">
+          <p>Typing: ${poke["Type 1"]}, ${poke["Type 2"]}</p>
+          <p>Max CP: ${poke["Max CP"]}</p>
+          <p>Max HP: ${poke["Max HP"]}</p>
+          `
+        }
+
+        function sorterCP(){
+          secPokemon.innerHTML = ``;
+          pokemon
+            .orderByChild("Max CP")
+            .on("child_added",visPokemon);
+        };
+
+        function sorterNavnAE(){
+          secPokemon.innerHTML = ``;
+          pokemon
+            .orderByChild("Name")
+            .endAt("F")
+            .on("child_added",visPokemon);
+        };
+
+        function sorterNavnFJ(){
+          secPokemon.innerHTML = ``;
+          pokemon
+            .orderByChild("Name")
+            .startAt("F")
+            .endAt("K")
+            .on("child_added",visPokemon);
+        };
+
+        function sorterNavnKZ(){
+          secPokemon.innerHTML = ``;
+          pokemon
+            .orderByChild("Name")
+            .startAt("K")
+            .on("child_added",visPokemon);
+        };
+
+        function visAllePokemon(){
+          secPokemon.innerHTML = ``;
+          pokemon
+            .orderByChild("pokemon")
+            .on("child_added", visPokemon);
+        };
+
+        function visGress(){
+          secPokemon.innerHTML = ``;
+          pokemon
+            .orderByChild("Type 1")
+            .equalTo("Grass")
+            .on("child_added", visPokemon)
+          pokemon
+          .orderByChild("Type 2")
+          .equalTo("Grass")
+          .on("child_added", visPokemon)
+        }
+
+    </script>
+  </body>
+</html>

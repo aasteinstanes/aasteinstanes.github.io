@@ -1,0 +1,39 @@
+header>nav{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+@media(max-width:500px){
+  header>nav{
+    flex-direction: column;
+  }
+}
+
+
+
+.mat{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr
+}
+
+@media(max-width:1500px){
+  .mat{
+    grid-template-columns: 1fr 1fr 1fr 1fr
+  }
+}
+@media(max-width:1100px){
+  .mat{
+    grid-template-columns: 1fr 1fr 1fr
+  }
+}
+@media(max-width:900px){
+  .mat{
+    grid-template-columns: 1fr 1fr
+  }
+}
+@media(max-width:700px){
+  .mat{
+    grid-template-columns: 1fr
+  }
+}

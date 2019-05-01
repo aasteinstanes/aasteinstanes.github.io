@@ -1,0 +1,86 @@
+"Oppgaver":{
+  "1":{
+    "svar":"En unik nøkkel til hvert objekt i databasen som gjør at vi lettere kan søke i databasen."
+  },
+  "2":{
+    "a":{
+      "svar":"Personnummer"
+    },
+    "b":{
+      "svar":"Identifiseringsnummer"
+    },
+    "c":{
+      "svar":"Navnet på planten med ett nummer"
+    },
+    "d":{
+      "svar":"Felefon nummer"
+    },
+    "e":{
+      "svar":"navnet på stjernen"
+    }
+  },
+  "3":{
+    "navn":"Kandidatnøkler er alle alternativene som kan brukes som primærnøkkel."
+  },
+  "4":{
+    "navn":"En id som gjør informasjonen unik for å unngå dobbeltlagring."
+  },
+  "5":{
+    "svar":"Teknikker som blir brukt for å unngå dobbeltlagringn og duplisering av data, kalles normalisering."
+  },
+  "6":{
+    "spillere":{
+      "karan":{
+        "highscore":-3,
+        "sistSpilt":"27.01.2019",
+        "mail":"karan@gmail.com"
+      },
+      "Aleksander":{
+        "highscore":2,
+        "sistSpilt":"26.01.2019",
+        "mail":"aleksander@gmail.com"
+      }
+    },
+    "melding":{
+      "001":{
+        "tekst":"Hei Aleksander, skal vi gå å kjøpe mat sammen i fiminuttet?:))",
+        "brukerID":"karan"
+      },
+      "002":{
+        "tekst":"Hei Karan! Ja, det har jeg veldig lyst til;) skal vi gå til storsenteret?",
+        "brukerID":"Aleksander"
+      },
+      "003":{
+        "tekst":"Ja, jeg møter deg ved utgangen klokka 11:)",
+        "brukerID":"karan"
+      },
+      "004":{
+        "tekst":"tipp topp tommel opp!",
+        "brukerID":"Aleksander"
+      }
+    }
+  },
+  "7":{
+    "3":{
+      "tittel":"Sharknado",
+      "regissør fornavn":"Bob",
+      "regissør etternavn":"Stern",
+      "Informasjon":"Universal Studios",
+      "årstall":"2004"
+    },
+    "5":{
+      "tittel":"Star Wars",
+      "regissør fornavn":"Steven",
+      "regissør etternavn":"Spilberg",
+      "Informasjon":"Paramount",
+      "årstall":"2004"
+    },
+    "8":{
+      "tittel":"E.T.",
+      "regissør fornavn":"Steven",
+      "regissør etternavn":"Spilberg",
+      "Informasjon":"Paramount",
+      "årstall":"2009"
+    }
+  }
+}

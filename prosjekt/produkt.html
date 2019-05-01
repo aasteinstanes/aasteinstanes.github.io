@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyB1EbCIj_4HfIP_mke2yktQtsWSuFdZk80",
+        authDomain: "prosjekt-2019.firebaseapp.com",
+        databaseURL: "https://prosjekt-2019.firebaseio.com",
+        projectId: "prosjekt-2019",
+        storageBucket: "prosjekt-2019.appspot.com",
+        messagingSenderId: "350332262335"
+      };
+      firebase.initializeApp(config);
+    </script>
+    <title>Produkter</title>
+    <link rel="stylesheet" href="stil.css">
+  </head>
+
+  <body>
+    <header>
+      <section class="forside">
+        <section class="Produkter1">
+          <div class="dropdown">
+            <span><p><a href="varer.html?id=genser">Genser</a><p></span>
+            <div class="dropdown-content">
+              <p><a href="varer.html?id=genserpris">Pris</a></p>
+              <p><a href="varer.html?id=gensernavn">Navn</a></p>
+              <p><a href="varer.html?id=gensermerke">Merke</a></p>
+            </div>
+          </div>
+        </section>
+        <section class="Produkter1">
+          <div class="dropdown">
+            <span><p><a href="varer.html?id=kjole">Kjole</a><p></span>
+            <div class="dropdown-content">
+              <p><a href="varer.html?id=kjolepris">Pris</a></p>
+              <p><a href="varer.html?id=kjolenavn">Navn</a></p>
+              <p><a href="varer.html?id=kjolemerke">Merke</a></p>
+            </div>
+          </div>
+        </section>
+        <section class="Logo">
+          <section class="Produkter1">
+            <div class="dropdown">
+              <span><a href="hjem.html"><img src="logo.svg" alt="logo"></a></span>
+                <div class="dropdown-content">
+                  <p><a href="varer.html?id=visAlle">Alle varer</a></p>
+                  <p><a href="omoss.html">Om Oss</a></p>
+                </div>
+            </div>
+          </section>
+        </section>
+        <section class="Produkter1">
+          <div class="dropdown">
+            <span><p><a href="varer.html?id=bukse">Bukse</a><p></span>
+            <div class="dropdown-content">
+              <p><a href="varer.html?id=buksepris">Pris</a></p>
+              <p><a href="varer.html?id=buksenavn">Navn</a></p>
+              <p><a href="varer.html?id=buksemerke">Merke</a></p>
+            </div>
+          </div>
+        </section>
+        <section class="Produkter1">
+          <div class="dropdown">
+            <span><p><a href="varer.html?id=sko">Sko</a><p></span>
+            <div class="dropdown-content">
+              <p><a href="varer.html?id=skopris">Pris</a></p>
+              <p><a href="varer.html?id=skonavn">Navn</a></p>
+              <p><a href="varer.html?id=skomerke">Merke</a></p>
+            </div>
+          </div>
+        </section>
+      </section>
+    </header>
+
+    <main>
+
+    </main>
+
+    <footer>
+      <section class="bunn">
+        <section class="bunn2">
+          <div class="bunntekst1">Hjelp</div>
+        </section>
+        <section class="bunn2">
+          <div class="bunntekst1">Shivani</div>
+        </section>
+        <section class="bunn2">
+          <div class="bunntekst1">Kampanjer</div>
+        </section>
+        <section class="bunn2">
+          <div class="bunntekst2">Kundeservice</div>
+        </section>
+        <section class="bunn2">
+          <div class="bunntekst2">Kvinner</div>
+        </section>
+        <section class="bunn2">
+          <div class="bunntekst2">Ballkjoler</div>
+        </section>
+        <section class="bunn2">
+          <div class="bunntekst2">Vilkår og betingelser</div>
+        </section>
+        <section class="bunn2">
+          <div class="bunntekst2">Menn</div>
+        </section>
+        <section class="bunn2">
+          <div class="bunntekst2">Basisplagg</div>
+        </section>
+        <section class="bunn2">
+          <div class="bunntekst2">Medlemsvilkår</div>
+        </section>
+        <section class="bunn2">
+          <div class="bunntekst2">Fra A-Å</div>
+        </section>
+        <section class="bunn2">
+          <div class="bunntekst2">Kjoler</div>
+        </section>
+      </section>
+    </footer>
+    <script>
+      const main = document.querySelector("main");
+
+      const db = firebase.database();
+      const varer = db.ref("varer");
+      const genser = db.ref("varer/genser");
+      const kjole = db.ref("varer/kjole");
+      const bukse = db.ref("varer/bukse");
+      const sko = db.ref("varer/sko");
+
+      let url_string = window.location.href;
+      let url = new URL(url_string);
+      let id = url.searchParams.get("id");
+      let parentId = url.searchParams.get("parent")
+
+      const valgtProdukt = db.ref("varer/" + parent + "/" + id );
+      valgtProdukt.on("value",genererHTML);
+
+
+      function genererHTML(snapshot){
+        let varer = snapshot.val();
+        main.innerHTML +=`
+          <section class="stortbildeProdukt">
+            ${varer.Bilde1}
+          </section>
+
+          <section class="litebildeProdukt">
+            ${varer.Bilde2}
+          </section>
+
+          <section class="inforProdukt">
+            <div class=""></div>
+          </section>
+
+          <section class="litebildeProdukt">
+            ${varer.Bilde3}
+          </section>
+        `;
+      };
+
+
+
+
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,16 @@
+.button {
+  background-color: darkorange;
+  border: none;
+  color: white;
+  padding: 15px 37px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 18px 17px;
+  cursor: pointer;
+  border-radius: 6%;
+}
+body{
+  text-align: center;
+}

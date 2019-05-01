@@ -1,0 +1,23 @@
+.button {
+  background-color: #4D7F51;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  font-weight: bold;
+  font-family: serif;
+  display: inline-block;
+  font-size: 20px;
+  margin: 15px 15px;
+  cursor: pointer;
+}
+body{
+  text-align: center;
+  font-style: italic;
+  font-family: serif;
+  background-color: #DBF6DD;
+  color: #4D7F51;
+}
+header{
+  background-color: #57895B;
+}

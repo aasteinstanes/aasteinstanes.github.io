@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="nb" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyAjfkmoP60Q_OE7J6SLWnH-0eX6K6vQe44",
+        authDomain: "nettbutikk-2a7d5.firebaseapp.com",
+        databaseURL: "https://nettbutikk-2a7d5.firebaseio.com",
+        projectId: "nettbutikk-2a7d5",
+        storageBucket: "nettbutikk-2a7d5.appspot.com",
+        messagingSenderId: "358418538363"
+      };
+      firebase.initializeApp(config);
+    </script>
+  </head>
+  <body>
+
+    <button type="button" name="button" onclick="sorterPris()">jakke</button>
+    <button type="button" name="button" onclick="sorterPris2()">Sko fra 1000 til 3000</button>
+
+    <main>
+      <section id="secVare">
+
+      </section>
+    </main>
+
+    <script type="text/javascript">
+      const db = firebase.database();
+      const jakker = db.ref("varer/jakker");
+      const sko = db.ref("varer/sko");
+
+      const secVare = document.querySelector("#secVare");
+
+      function visVare(snapshot){
+        console.log(snapshot.val());
+        let vare = snapshot.val();
+        secVare.innerHTML += `
+          <h1>${vare.merke}: ${vare.modell}</h1>
+          <p>pris:${vare.pris}</p>
+        `
+      }
+
+  /*    jakker.on("child_added",visVare);
+      sko.on("child_added",visVare);
+
+      sko.orderByChild("pris").on("child_added",visVare);
+
+      sko //referanse til databasen
+      .orderByChild("pris") //sorteringsfungsjon
+      .limitToFirst(2) //sorteringsfungsjon
+      .on("child_added",visVare); //spørrefungsjon
+*/
+
+
+      function sorterPris2(){
+        secVare.innerHTML = ``;
+        sko
+          .orderByChild("pris")
+          .startAt(1000)
+          .endAt(3000)
+          .on("child_added", visVare);
+      }
+
+      function sorterPris(){
+        secVare.innerHTML = ``;
+        jakker
+          .orderByChild("pris")
+          .on("child_added", visVare);
+      }
+
+
+
+    </script>
+  </body>
+</html>

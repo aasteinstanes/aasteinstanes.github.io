@@ -1,0 +1,215 @@
+header>.forside{
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  position: fixed;
+  width:100%;
+  top: 0;
+  background-color: #F4D8DB;
+  text-align: center;
+  padding-top: 15px;
+}
+
+.headervarer {
+  margin-bottom: 150px;
+}
+
+.Logo{
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+.Produkter1{
+  grid-column: span 1;
+  grid-row: span 1;
+  font-size: 28px;
+  margin-top: 10px;
+}
+
+.dropdown {
+  position:static;
+  display: inline-block;
+}
+
+.dropdown:hover .dropdown-content {
+  display:block;
+}
+
+.dropdown:hover{
+  font-style: italic;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #5A3C45;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding-left: 4px;
+  padding-right: 4px;
+  z-index: 1;
+}
+
+.dropdown-content>p:hover{
+  font-weight: bold;
+  color: white;
+}
+
+p{
+  color: #6E2F41;
+}
+
+a{
+  text-decoration: none;
+  color:#996574;
+}
+
+main>.tre{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  margin-top:110px;
+  margin-right: 40px;
+  margin-left: 40px;
+  grid-gap: 8px;
+}
+
+img {
+  width: 100%;
+}
+
+#mainvarer {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  grid-gap: 1em;
+  padding-left: 35px;
+  padding-right: 35px;
+}
+
+.vareelement {
+  display:grid;
+  grid-template-columns: repeat(4,1fr);
+}
+
+.stortbilde{
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.litebilde{
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+.stortekst{
+  grid-column: span 3;
+  grid-row: span 1;
+  background-color: #996574;
+  color: white;
+  font-size: 26px;
+  text-align: center;
+  padding-top:15px;
+  padding-bottom:15px;
+  margin-bottom: 5px;
+  margin-top: 40px;
+  font-weight: bold;
+}
+
+.bildetopp{
+  text-align: center;
+}
+
+.teksttopp{
+  padding-left: 60px;
+}
+
+.tekstnavn{
+  font-size: 17px;
+  font-family: serif;
+  color: #6E2F41;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.tekstpris{
+  font-size: 15px;
+  margin-bottom: 20px;
+  font-family:serif;
+  color: #6E2F41;
+}
+
+.bildeforside{
+  margin-top: 40px;
+}
+
+.varer2{
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 120px;
+  margin-bottom: 25px;
+  width: 1200px;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  padding-top: 25px;
+}
+
+#navnvare {
+  font-size: 20px;
+  font-family: serif;
+  color: #6E2F41;
+  font-weight: bold;
+  font-style: italic;
+  text-align: center;
+}
+
+.varerInformasjon{
+  font-size: 15px;
+  margin-bottom: 20px;
+  font-family:serif;
+  color: #6E2F41
+}
+
+.bilderForside, .varerNavn, .varerInformasjon{
+  grid-column: span 4;
+}
+
+.Omoss{
+  margin-top: 130px;
+  margin-left: 60px;
+  margin-right: 60px;
+  margin-bottom: 40px;
+}
+.pOmoss{
+  font-size: 18px;
+}
+h1{
+  color: #6E2F41;
+  font-size: 35px;
+}
+
+footer{
+  background-color: #996574;
+  margin-bottom: 30px;
+}
+
+footer>.bunn{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.bunn2{
+  text-align: center;
+  margin-top: 3px;
+}
+
+.bunntekst1{
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 3px;
+}
+
+.bunntekst2{
+  font-size: 15px;
+  color: lightgrey;
+}
