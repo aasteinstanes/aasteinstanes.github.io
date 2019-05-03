@@ -21,65 +21,64 @@
 
   <body>
     <header>
-      <section class="forside">
-        <section class="Produkter1">
-          <div class="dropdown">
-            <span><p><a href="varer.html?id=genser">Genser</a><p></span>
-            <div class="dropdown-content">
-              <p><a href="varer.html?id=genserpris">Pris</a></p>
-              <p><a href="varer.html?id=gensernavn">Navn</a></p>
-              <p><a href="varer.html?id=gensermerke">Merke</a></p>
-            </div>
-          </div>
-        </section>
-        <section class="Produkter1">
-          <div class="dropdown">
-            <span><p><a href="varer.html?id=kjole">Kjole</a><p></span>
-            <div class="dropdown-content">
-              <p><a href="varer.html?id=kjolepris">Pris</a></p>
-              <p><a href="varer.html?id=kjolenavn">Navn</a></p>
-              <p><a href="varer.html?id=kjolemerke">Merke</a></p>
-            </div>
-          </div>
-        </section>
-        <section class="Logo">
+      <header class="headervarer">
+        <section class="forside">
           <section class="Produkter1">
             <div class="dropdown">
-              <span><a href="hjem.html"><img src="logo.svg" alt="logo"></a></span>
-                <div class="dropdown-content">
-                  <p><a href="varer.html?id=visAlle">Alle varer</a></p>
-                  <p><a href="omoss.html">Om Oss</a></p>
+              <span><p><a href="varer.html?id=genser">Genser</a><p></span>
+              <div class="dropdown-content">
+                <p><a id="funksjonVarer" href="varer.html?id=genserpris">Pris</a></p>
+                <p><a id="funksjonVarer" href="varer.html?id=gensernavn">Navn</a></p>
+                <p><a id="funksjonVarer" href="varer.html?id=gensermerke">Merke</a></p>
+              </div>
+            </div>
+          </section>
+          <section class="Produkter1">
+            <div class="dropdown">
+              <span><p><a href="varer.html?id=kjole">Kjole</a><p></span>
+              <div class="dropdown-content">
+                <p><a id="funksjonVarer" href="varer.html?id=kjolepris">Pris</a></p>
+                <p><a id="funksjonVarer" href="varer.html?id=kjolenavn">Navn</a></p>
+                <p><a id="funksjonVarer" href="varer.html?id=kjolemerke">Merke</a></p>
+              </div>
+            </div>
+          </section>
+          <section class="Logo">
+            <section class="Produkter1">
+              <div class="dropdown">
+                <span><a href="hjem.html"><img src="logo.svg" alt="logo"></a></span>
+                <div class="dropdown-content" id="logodropdowncontent">
+                  <p><a id="funksjonVarer" href="varer.html?id=visAlle">Alle varer</a></p>
+                  <p><a id="funksjonVarer" href="omoss.html">Om Oss</a></p>
                 </div>
+              </div>
+            </section>
+          </section>
+          <section class="Produkter1">
+            <div class="dropdown">
+              <span><p><a href="varer.html?id=bukse">Bukse</a><p></span>
+              <div class="dropdown-content">
+                <p><a id="funksjonVarer" href="varer.html?id=buksepris">Pris</a></p>
+                <p><a id="funksjonVarer" href="varer.html?id=buksenavn">Navn</a></p>
+                <p><a id="funksjonVarer" href="varer.html?id=buksemerke">Merke</a></p>
+              </div>
+            </div>
+          </section>
+          <section class="Produkter1">
+            <div class="dropdown">
+              <span><p><a href="varer.html?id=sko">Sko</a><p></span>
+              <div class="dropdown-content">
+                <p><a id="funksjonVarer" href="varer.html?id=skopris">Pris</a></p>
+                <p><a id="funksjonVarer" href="varer.html?id=skonavn">Navn</a></p>
+                <p><a id="funksjonVarer" href="varer.html?id=skomerke">Merke</a></p>
+              </div>
             </div>
           </section>
         </section>
-        <section class="Produkter1">
-          <div class="dropdown">
-            <span><p><a href="varer.html?id=bukse">Bukse</a><p></span>
-            <div class="dropdown-content">
-              <p><a href="varer.html?id=buksepris">Pris</a></p>
-              <p><a href="varer.html?id=buksenavn">Navn</a></p>
-              <p><a href="varer.html?id=buksemerke">Merke</a></p>
-            </div>
-          </div>
-        </section>
-        <section class="Produkter1">
-          <div class="dropdown">
-            <span><p><a href="varer.html?id=sko">Sko</a><p></span>
-            <div class="dropdown-content">
-              <p><a href="varer.html?id=skopris">Pris</a></p>
-              <p><a href="varer.html?id=skonavn">Navn</a></p>
-              <p><a href="varer.html?id=skomerke">Merke</a></p>
-            </div>
-          </div>
-        </section>
-      </section>
     </header>
-
-    <main>
+    <main id="mainprodukt">
 
     </main>
-
     <footer>
       <section class="bunn">
         <section class="bunn2">
@@ -124,7 +123,6 @@
       const main = document.querySelector("main");
 
       const db = firebase.database();
-      const varer = db.ref("varer");
       const genser = db.ref("varer/genser");
       const kjole = db.ref("varer/kjole");
       const bukse = db.ref("varer/bukse");
@@ -132,33 +130,70 @@
 
       let url_string = window.location.href;
       let url = new URL(url_string);
+      let parentId = url.searchParams.get("parent");
       let id = url.searchParams.get("id");
-      let parentId = url.searchParams.get("parent")
 
-      const valgtProdukt = db.ref("varer/" + parent + "/" + id );
+      const valgtProdukt = db.ref("varer/" + parentId + "/" + id );
       valgtProdukt.on("value",genererHTML);
-
 
       function genererHTML(snapshot){
         let varer = snapshot.val();
+        if (varer.Farge2 === ""){
+          Farger = `Farge: `;
+          Farge2 = ``;
+        }
+        else {
+          Farger = `Farger: `;
+          Farge2 = `, ${varer.Farge2}`;
+        };
+        if (varer.Farge3 === ""){
+          Farge3 = ``;
+        }
+        else {
+          Farge3 = `, ${varer.Farge3}`;
+        };
         main.innerHTML +=`
           <section class="stortbildeProdukt">
-            ${varer.Bilde1}
+            <img src="${varer.Bilde1}">
           </section>
-
           <section class="litebildeProdukt">
-            ${varer.Bilde2}
+            <img src="${varer.Bilde2}">
           </section>
-
-          <section class="inforProdukt">
-            <div class=""></div>
+          <section class="infoProdukt">
+            <h1 class="navnvare">${varer.Navn}</h1>
+            <div>${varer.Merke}</div>
+            <div>${Number(varer.Pris)} kr</div>
+            <div>${Farger}${varer.Farge1}${Farge2}${Farge3}</div>
+            <div class="skjema">
+              <form>
+                <div>Produktet er tilgjengelig i disse størrelsene:</div>
+                <select name="stoerrelse" required>
+                  <option value="">Størrelse</option>
+                  <option value="XS">XS</option>
+                  <option value="S">S</option>
+                  <option value="M">M</option>
+                  <option value="L">L</option>
+                  <option value="XL">XL</option>
+                </select>
+                <div>Hvor mange ønsker du å kjøpe?</div>
+                <select name="antall" required>
+                  <option value="">Antall</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                </select>
+                <button type="reset">Legg til i handlekurv</button>
+              </form>
+            </div>
           </section>
-
           <section class="litebildeProdukt">
-            ${varer.Bilde3}
+            <img src="${varer.Bilde3}">
           </section>
         `;
       };
+
+
 
 
 

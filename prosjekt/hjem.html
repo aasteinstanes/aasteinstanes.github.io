@@ -2,19 +2,32 @@
 <html lang="nb" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyB1EbCIj_4HfIP_mke2yktQtsWSuFdZk80",
+        authDomain: "prosjekt-2019.firebaseapp.com",
+        databaseURL: "https://prosjekt-2019.firebaseio.com",
+        projectId: "prosjekt-2019",
+        storageBucket: "prosjekt-2019.appspot.com",
+        messagingSenderId: "350332262335"
+      };
+      firebase.initializeApp(config);
+    </script>
     <title>Hjem</title>
     <link rel="stylesheet" href="stil.css">
   </head>
   <body>
-    <header>
+    <header class="headervarer">
       <section class="forside">
         <section class="Produkter1">
           <div class="dropdown">
             <span><p><a href="varer.html?id=genser">Genser</a><p></span>
             <div class="dropdown-content">
-              <p><a href="varer.html?id=genserpris">Pris</a></p>
-              <p><a href="varer.html?id=gensernavn">Navn</a></p>
-              <p><a href="varer.html?id=gensermerke">Merke</a></p>
+              <p><a id="funksjonVarer" href="varer.html?id=genserpris">Pris</a></p>
+              <p><a id="funksjonVarer" href="varer.html?id=gensernavn">Navn</a></p>
+              <p><a id="funksjonVarer" href="varer.html?id=gensermerke">Merke</a></p>
             </div>
           </div>
         </section>
@@ -22,9 +35,9 @@
           <div class="dropdown">
             <span><p><a href="varer.html?id=kjole">Kjole</a><p></span>
             <div class="dropdown-content">
-              <p><a href="varer.html?id=kjolepris">Pris</a></p>
-              <p><a href="varer.html?id=kjolenavn">Navn</a></p>
-              <p><a href="varer.html?id=kjolemerke">Merke</a></p>
+              <p><a id="funksjonVarer" href="varer.html?id=kjolepris">Pris</a></p>
+              <p><a id="funksjonVarer" href="varer.html?id=kjolenavn">Navn</a></p>
+              <p><a id="funksjonVarer" href="varer.html?id=kjolemerke">Merke</a></p>
             </div>
           </div>
         </section>
@@ -32,10 +45,10 @@
           <section class="Produkter1">
             <div class="dropdown">
               <span><a href="hjem.html"><img src="logo.svg" alt="logo"></a></span>
-                <div class="dropdown-content">
-                  <p><a href="varer.html?id=visAlle">Alle varer</a></p>
-                  <p><a href="omoss.html">Om Oss</a></p>
-                </div>
+              <div class="dropdown-content" id="logodropdowncontent">
+                <p><a id="funksjonVarer" href="varer.html?id=visAlle">Alle varer</a></p>
+                <p><a id="funksjonVarer" href="omoss.html">Om Oss</a></p>
+              </div>
             </div>
           </section>
         </section>
@@ -43,9 +56,9 @@
           <div class="dropdown">
             <span><p><a href="varer.html?id=bukse">Bukse</a><p></span>
             <div class="dropdown-content">
-              <p><a href="varer.html?id=buksepris">Pris</a></p>
-              <p><a href="varer.html?id=buksenavn">Navn</a></p>
-              <p><a href="varer.html?id=buksemerke">Merke</a></p>
+              <p><a id="funksjonVarer" href="varer.html?id=buksepris">Pris</a></p>
+              <p><a id="funksjonVarer" href="varer.html?id=buksenavn">Navn</a></p>
+              <p><a id="funksjonVarer" href="varer.html?id=buksemerke">Merke</a></p>
             </div>
           </div>
         </section>
@@ -53,9 +66,9 @@
           <div class="dropdown">
             <span><p><a href="varer.html?id=sko">Sko</a><p></span>
             <div class="dropdown-content">
-              <p><a href="varer.html?id=skopris">Pris</a></p>
-              <p><a href="varer.html?id=skonavn">Navn</a></p>
-              <p><a href="varer.html?id=skomerke">Merke</a></p>
+              <p><a id="funksjonVarer" href="varer.html?id=skopris">Pris</a></p>
+              <p><a id="funksjonVarer" href="varer.html?id=skonavn">Navn</a></p>
+              <p><a id="funksjonVarer" href="varer.html?id=skomerke">Merke</a></p>
             </div>
           </div>
         </section>
@@ -74,34 +87,9 @@
         </section>
 
         <section class="stortekst">Toppselgere</section>
-        <section class="litebilde">
-          <div class="bildetopp">
-            <a href="produkter/genserSoft.html"><img src="produkter/bildegenser/1.jpeg" alt="genser"></a>
-          </div>
-          <section class="teksttopp">
-            <div class="tekstnavn">Soft Zip Sweat</div>
-            <div class="tekstpris">399 kr</div>
-          </section>
-        </section>
-        <section class="litebilde">
-            <div class="bildetopp">
-              <a href="produkter/skoPerfect.html"><img src="produkter/bildesko/1.jpeg" alt="sko"></a>
-            </div>
-          <section class="teksttopp">
-            <div class="tekstnavn">Perfect Chunky Sneaker</div>
-            <div class="tekstpris">399 kr</div>
-          </section>
-        </section>
-        <section class="litebilde">
-          <div class="bildetopp">
-            <a href="produkter/buksePlenty.html"><img src="produkter/bildebukse/1.jpeg" alt="bukse"></a>
-          </div>
-          <section class="teksttopp">
-            <div class="tekstnavn">Plenty Denim Leggings</div>
-            <div class="tekstpris">399 kr</div>
-          </section>
-        </section>
+        <section class="secHjem">
 
+        </section>
         <section class="litebilde">
           <div class="bildeforside">
             <img src="bilder_forside/bilde4.jpg" alt="sommerkjoler"></a>
@@ -159,5 +147,53 @@
         </section>
       </section>
     </footer>
+    <script type="text/javascript">
+      const secHjem = document.querySelector(".secHjem");
+
+      const db = firebase.database();
+      const varer = db.ref("varer");
+      const genser = db.ref("varer/genser");
+      const kjole = db.ref("varer/kjole");
+      const bukse = db.ref("varer/bukse");
+      const sko = db.ref("varer/sko");
+
+      let url_string = window.location.href;
+      let url = new URL(url_string);
+      let id = url.searchParams.get("id");
+
+      function genererHTML(snapshot){
+        let varer = snapshot.val();
+        let key = snapshot.key;
+        let parent = snapshot.ref.parent.key;
+        secHjem.innerHTML +=`
+          <section class="litebilde">
+              <div class="bildetopp">
+                <a href="produkt.html?id=${key}&parentId=${parent}"><img src="${varer.Bilde1}" alt="${parent}"></a>
+              </div>
+            <section class="teksttopp">
+              <div class="tekstnavn">${varer.Navn}</div>
+              <div class="tekstpris">${Number(varer.Pris)} kr</div>
+            </section>
+          </section>
+        `;
+      };
+
+      function visAlle(){
+        genser
+          .orderByChild("Navn")
+          .limitToFirst(1)
+          .on("child_added",genererHTML);
+        kjole
+          .orderByChild("Navn")
+          .limitToFirst(1)
+          .on("child_added",genererHTML);
+        bukse
+          .orderByChild("Navn")
+          .limitToFirst(1)
+          .on("child_added",genererHTML);
+      };
+
+      visAlle();
+    </script>
   </body>
 </html>

@@ -25,9 +25,9 @@
           <div class="dropdown">
             <span><p><a href="varer.html?id=genser">Genser</a><p></span>
             <div class="dropdown-content">
-              <p><a href="varer.html?id=genserpris">Pris</a></p>
-              <p><a href="varer.html?id=gensernavn">Navn</a></p>
-              <p><a href="varer.html?id=gensermerke">Merke</a></p>
+              <p><a id="funksjonVarer" href="varer.html?id=genserpris">Pris</a></p>
+              <p><a id="funksjonVarer" href="varer.html?id=gensernavn">Navn</a></p>
+              <p><a id="funksjonVarer" href="varer.html?id=gensermerke">Merke</a></p>
             </div>
           </div>
         </section>
@@ -35,9 +35,9 @@
           <div class="dropdown">
             <span><p><a href="varer.html?id=kjole">Kjole</a><p></span>
             <div class="dropdown-content">
-              <p><a href="varer.html?id=kjolepris">Pris</a></p>
-              <p><a href="varer.html?id=kjolenavn">Navn</a></p>
-              <p><a href="varer.html?id=kjolemerke">Merke</a></p>
+              <p><a id="funksjonVarer" href="varer.html?id=kjolepris">Pris</a></p>
+              <p><a id="funksjonVarer" href="varer.html?id=kjolenavn">Navn</a></p>
+              <p><a id="funksjonVarer" href="varer.html?id=kjolemerke">Merke</a></p>
             </div>
           </div>
         </section>
@@ -45,10 +45,10 @@
           <section class="Produkter1">
             <div class="dropdown">
               <span><a href="hjem.html"><img src="logo.svg" alt="logo"></a></span>
-                <div class="dropdown-content">
-                  <p><a href="varer.html?id=visAlle">Alle varer</a></p>
-                  <p><a href="omoss.html">Om Oss</a></p>
-                </div>
+              <div class="dropdown-content" id="logodropdowncontent">
+                <p><a id="funksjonVarer" href="varer.html?id=visAlle">Alle varer</a></p>
+                <p><a id="funksjonVarer" href="omoss.html">Om Oss</a></p>
+              </div>
             </div>
           </section>
         </section>
@@ -56,9 +56,9 @@
           <div class="dropdown">
             <span><p><a href="varer.html?id=bukse">Bukse</a><p></span>
             <div class="dropdown-content">
-              <p><a href="varer.html?id=buksepris">Pris</a></p>
-              <p><a href="varer.html?id=buksenavn">Navn</a></p>
-              <p><a href="varer.html?id=buksemerke">Merke</a></p>
+              <p><a id="funksjonVarer" href="varer.html?id=buksepris">Pris</a></p>
+              <p><a id="funksjonVarer" href="varer.html?id=buksenavn">Navn</a></p>
+              <p><a id="funksjonVarer" href="varer.html?id=buksemerke">Merke</a></p>
             </div>
           </div>
         </section>
@@ -66,14 +66,15 @@
           <div class="dropdown">
             <span><p><a href="varer.html?id=sko">Sko</a><p></span>
             <div class="dropdown-content">
-              <p><a href="varer.html?id=skopris">Pris</a></p>
-              <p><a href="varer.html?id=skonavn">Navn</a></p>
-              <p><a href="varer.html?id=skomerke">Merke</a></p>
+              <p><a id="funksjonVarer" href="varer.html?id=skopris">Pris</a></p>
+              <p><a id="funksjonVarer" href="varer.html?id=skonavn">Navn</a></p>
+              <p><a id="funksjonVarer" href="varer.html?id=skomerke">Merke</a></p>
             </div>
           </div>
         </section>
       </section>
     </header>
+
     <main id="mainvarer">
 
     </main>
@@ -136,7 +137,7 @@
         let key = snapshot.key;
         let parent = snapshot.ref.parent.key;
         main.innerHTML +=`
-          <a class="vareelement" href="produkt.html?id=${key}&parentId=${parent}">
+          <a class="vareelement" href="produkt.html?id=${key}&parent=${parent}">
             <div class="varerNavn">
               <h1 id="navnvare">${varer.Navn}</h1>
             </div>
@@ -144,8 +145,8 @@
               <img src="${varer.Bilde1}">
             </div>
             <div class="varerInformasjon">
-              <p>Merke: ${varer.Merke}</p>
-              <p>Pris: ${varer.Pris} kr</p>
+              <p>${varer.Merke}</p>
+              <p>${Number(varer.Pris)} kr</p>
               <p>Farge: ${varer.Farge1}</p>
             </div>
           </a>
@@ -174,6 +175,11 @@
         main.innerHTML = "";
         genser
           .orderByChild("Pris")
+          .endAt(1000)
+          .on("child_added",genererHTML);
+        genser
+          .orderByChild("Pris")
+          .startAt(1000)
           .on("child_added",genererHTML);
       };
 
@@ -201,6 +207,11 @@
         main.innerHTML = "";
         kjole
           .orderByChild("Pris")
+          .endAt(1000)
+          .on("child_added",genererHTML);
+        kjole
+          .orderByChild("Pris")
+          .startAt(1000)
           .on("child_added",genererHTML);
       };
 
@@ -228,6 +239,11 @@
         main.innerHTML = "";
         bukse
           .orderByChild("Pris")
+          .endAt(1000)
+          .on("child_added",genererHTML);
+        bukse
+          .orderByChild("Pris")
+          .startAt(1000)
           .on("child_added",genererHTML);
       };
 
@@ -255,6 +271,11 @@
         main.innerHTML = "";
         sko
           .orderByChild("Pris")
+          .endAt(1000)
+          .on("child_added",genererHTML);
+        sko
+          .orderByChild("Pris")
+          .startAt(1000)
           .on("child_added",genererHTML);
       };
 
