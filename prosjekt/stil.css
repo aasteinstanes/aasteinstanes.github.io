@@ -1,4 +1,9 @@
-header>.forside{
+
+/*Her er css'en for headeren min*/
+.headervarer {
+  margin-bottom: 150px;
+}
+.stilheader{
   display: grid;
   grid-template-columns: repeat(5,1fr);
   position: fixed;
@@ -8,36 +13,16 @@ header>.forside{
   text-align: center;
   padding-top: 15px;
 }
-
-.headervarer {
-  margin-bottom: 150px;
-}
-
-.Logo{
-  grid-column: span 1;
-  grid-row: span 1;
-}
-
 .Produkter1{
   grid-column: span 1;
   grid-row: span 1;
   font-size: 28px;
   margin-top: 10px;
 }
-
 .dropdown {
   position:static;
   display: inline-block;
 }
-
-.dropdown:hover .dropdown-content {
-  display:block;
-}
-
-.dropdown:hover{
-  font-style: italic;
-}
-
 .dropdown-content {
   display: none;
   position: absolute;
@@ -48,27 +33,56 @@ header>.forside{
   padding-right: 4px;
   z-index: 1;
 }
-
-#logodropdowncontent {
-  margin-top: 10px;
-}
-
-.dropdown-content>p:hover{
-  font-weight: bold;
-}
-
 #funksjonVarer {
   color: white;
 }
-
+.Logo{
+  grid-column: span 1;
+  grid-row: span 1;
+}
+#logodropdowncontent {
+  margin-top: 10px;
+}
+.dropdown:hover .dropdown-content {
+  display:block;
+}
+.dropdown:hover{
+  font-style: italic;
+}
+.dropdown-content>p:hover{
+  font-weight: bold;
+}
 p{
   color: #6E2F41;
 }
-
 a{
   text-decoration: none;
   color:#996574;
 }
+img {
+  width: 100%;
+}
+/*her er header css'en ferdig, jeg bruker samme header på hver side*/
+
+/*her starter css'en for hjem siden min*/
+.tre{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  margin-top:110px;
+  margin-right: 40px;
+  margin-left: 40px;
+  grid-gap: 8px;
+}
+.stortbilde{
+  grid-column: span 2;
+  grid-row: span 2;
+}
+.litebilde{
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+/*Her slutter css'en for hjem siden, i tilegg til disse har jeg også brukt img,  */
 
 .secHjem {
   grid-column: span 3;
@@ -77,18 +91,6 @@ a{
   grid-template-columns: repeat(3,1fr);
 }
 
-main>.tre{
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  margin-top:110px;
-  margin-right: 40px;
-  margin-left: 40px;
-  grid-gap: 8px;
-}
-
-img {
-  width: 100%;
-}
 
 #mainvarer {
   display: grid;
@@ -103,15 +105,6 @@ img {
   grid-template-columns: repeat(4,1fr);
 }
 
-.stortbilde{
-  grid-column: span 2;
-  grid-row: span 2;
-}
-
-.litebilde{
-  grid-column: span 1;
-  grid-row: span 1;
-}
 
 .stortekst,.lignendeProdukter{
   grid-column: span 3;
