@@ -113,7 +113,7 @@ img {
   grid-row: span 1;
 }
 
-.stortekst{
+.stortekst,.lignendeProdukter{
   grid-column: span 3;
   grid-row: span 1;
   background-color: #996574;
@@ -125,6 +125,10 @@ img {
   margin-bottom: 5px;
   margin-top: 40px;
   font-weight: bold;
+}
+
+.lignendeProdukter {
+  grid-column: span 5;
 }
 
 .bildetopp{
@@ -181,7 +185,7 @@ img {
 
 .varerInformasjon{
   font-size: 15px;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
   font-family:serif;
   color: #6E2F41
 }
@@ -209,12 +213,6 @@ img {
   grid-row: span 1;
 }
 
-.infoProdukt,h1 {
-  grid-column: span 2;
-  grid-row: span 2;
-  color: #6E2F41;
-}
-
 
 .Omoss{
   margin-top: 130px;
@@ -236,6 +234,24 @@ h1{
 
 .merkeProdukt,.prisProdukt,.fargeProdukt{
 
+}
+
+.produkterInformasjon{
+  grid-column: span 2;
+  grid-row: span 2;
+  color: #6E2F41;
+}
+
+.secProdukter {
+  grid-column: span 2;
+  grid-row: span 1;
+  display: grid;
+}
+
+.secLignendeProdukter {
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  grid-column-gap: 0.5em;
 }
 
 footer{

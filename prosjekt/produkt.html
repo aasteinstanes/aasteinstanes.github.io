@@ -76,8 +76,14 @@
           </section>
         </section>
     </header>
-    <main id="mainprodukt">
+    <main>
+      <section id="mainprodukt">
 
+      </section>
+      <section class="lignendeProdukter">Lignende produkter</section>
+      <section class="secLignendeProdukter">
+
+      </section>
     </main>
     <footer>
       <section class="bunn">
@@ -120,7 +126,8 @@
       </section>
     </footer>
     <script>
-      const main = document.querySelector("main");
+      const main = document.querySelector("#mainprodukt");
+      const secLignendeProdukter = document.querySelector(".secLignendeProdukter");
 
       const db = firebase.database();
       const genser = db.ref("varer/genser");
@@ -134,9 +141,9 @@
       let id = url.searchParams.get("id");
 
       const valgtProdukt = db.ref("varer/" + parentId + "/" + id );
-      valgtProdukt.on("value",genererHTML);
+      valgtProdukt.on("value",genererVare);
 
-      function genererHTML(snapshot){
+      function genererVare(snapshot){
         let varer = snapshot.val();
         if (varer.Farge2 === ""){
           Farger = `Farge: `;
@@ -152,18 +159,18 @@
         else {
           Farge3 = `, ${varer.Farge3}`;
         };
-        main.innerHTML +=`
+        main.innerHTML += `
           <section class="stortbildeProdukt">
             <img src="${varer.Bilde1}">
           </section>
           <section class="litebildeProdukt">
             <img src="${varer.Bilde2}">
           </section>
-          <section class="infoProdukt">
+          <section class="produkterInformasjon">
             <h1 class="navnvare">${varer.Navn}</h1>
-            <div>${varer.Merke}</div>
-            <div>${Number(varer.Pris)} kr</div>
-            <div>${Farger}${varer.Farge1}${Farge2}${Farge3}</div>
+            <div class="varerProdukt">${varer.Merke}</div>
+            <div class"prisProdukt">${Number(varer.Pris)} kr</div>
+            <div class"fargeProdukt">${Farger}${varer.Farge1}${Farge2}${Farge3}</div>
             <div class="skjema">
               <form>
                 <div>Produktet er tilgjengelig i disse størrelsene:</div>
@@ -193,12 +200,39 @@
         `;
       };
 
+      function genererHTML(snapshot){
+        let varer = snapshot.val();
+        let key = snapshot.key;
+        let parent = snapshot.ref.parent.key;
+        secLignendeProdukter.innerHTML += `
+          <section class="litebilde">
+              <div class="bildetopp">
+                <a href="produkt.html?id=${key}&parent=${parent}"><img src="${varer.Bilde1}" alt="${parent}"></a>
+              </div>
+            <section class="teksttopp">
+              <div class="tekstnavn">${varer.Navn}</div>
+              <div class="tekstpris">${Number(varer.Pris)} kr</div>
+            </section>
+          </section>
+        `;
+      };
 
+      function lignendeProdukter(){
+        genser
+          .limitToFirst(1)
+          .on("child_added",genererHTML);
+        kjole
+          .limitToFirst(1)
+          .on("child_added",genererHTML);
+        bukse
+          .limitToFirst(1)
+          .on("child_added",genererHTML);
+        sko
+          .limitToFirst(1)
+          .on("child_added",genererHTML);
+      };
 
-
-
-
+      lignendeProdukter();
     </script>
-
   </body>
 </html>
