@@ -1,5 +1,4 @@
-
-/*Her er css'en for headeren min*/
+/*Her er css'en for headeren min, denne bruker jeg på toppen av hver side*/
 .headervarer {
   margin-bottom: 150px;
 }
@@ -33,12 +32,24 @@
   padding-right: 4px;
   z-index: 1;
 }
+p{
+  color: #6E2F41;
+}
+a{
+  text-decoration: none;
+  color:#996574;
+}
 #funksjonVarer {
   color: white;
 }
 .Logo{
   grid-column: span 1;
   grid-row: span 1;
+  padding-top: 15px;
+  padding-bottom: 10px;
+}
+img {
+  width: 100%;
 }
 #logodropdowncontent {
   margin-top: 10px;
@@ -52,17 +63,7 @@
 .dropdown-content>p:hover{
   font-weight: bold;
 }
-p{
-  color: #6E2F41;
-}
-a{
-  text-decoration: none;
-  color:#996574;
-}
-img {
-  width: 100%;
-}
-/*her er header css'en ferdig, jeg bruker samme header på hver side*/
+/*her er header css'en ferdig*/
 
 /*her starter css'en for hjem siden min*/
 .tre{
@@ -71,7 +72,7 @@ img {
   margin-top:110px;
   margin-right: 40px;
   margin-left: 40px;
-  grid-gap: 8px;
+  grid-gap: 0.5em;
 }
 .stortbilde{
   grid-column: span 2;
@@ -81,33 +82,10 @@ img {
   grid-column: span 1;
   grid-row: span 1;
 }
-
-/*Her slutter css'en for hjem siden, i tilegg til disse har jeg også brukt img,  */
-
-.secHjem {
-  grid-column: span 3;
-  grid-row: span 1;
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
+.stortekst{
+    grid-column: span 3;
 }
-
-
-#mainvarer {
-  display: grid;
-  grid-template-columns: repeat(4,1fr);
-  grid-gap: 1em;
-  padding-left: 35px;
-  padding-right: 35px;
-}
-
-.vareelement {
-  display:grid;
-  grid-template-columns: repeat(4,1fr);
-}
-
-
 .stortekst,.lignendeProdukter{
-  grid-column: span 3;
   grid-row: span 1;
   background-color: #996574;
   color: white;
@@ -119,24 +97,22 @@ img {
   margin-top: 40px;
   font-weight: bold;
 }
-
-.lignendeProdukter {
-  grid-column: span 5;
+.secHjem {
+  grid-column: span 3;
+  grid-row: span 1;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-gap: 0.5em;
 }
-
+.bildeforside{
+  margin-top: 40px;
+}
 .bildetopp{
   text-align: center;
 }
-
 .teksttopp{
   padding-left: 60px;
 }
-
-.Logo {
-  padding-top: 15px;
-  padding-bottom: 10px;
-}
-
 .tekstnavn{
   font-size: 17px;
   font-family: serif;
@@ -144,134 +120,193 @@ img {
   font-weight: bold;
   font-style: italic;
 }
-
 .tekstpris{
   font-size: 15px;
   margin-bottom: 20px;
   font-family:serif;
   color: #6E2F41;
 }
+/*Her slutter css'en for hjem siden, i tilegg til disse har jeg også brukt img, a, p */
 
-.bildeforside{
-  margin-top: 40px;
-}
-
-.varer2{
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 120px;
-  margin-bottom: 25px;
-  width: 1200px;
+/*her starter css'en for varer siden*/
+#mainvarer {
   display: grid;
   grid-template-columns: repeat(4,1fr);
-  padding-top: 25px;
+  grid-gap: 1em;
+  padding-left: 35px;
+  padding-right: 35px;
 }
-
-#navnvare {
+.vareelement {
+  display:grid;
+  grid-template-columns: repeat(4,1fr);
+}
+#navnVare {
   font-size: 20px;
   font-family: serif;
   color: #6E2F41;
   font-weight: bold;
   font-style: italic;
   text-align: center;
+  margin-bottom: 15px;
 }
-
+.varerBilde, .varerNavn, .varerInformasjon{
+  grid-column: span 4;
+}
 .varerInformasjon{
   font-size: 15px;
   margin-bottom: 0px;
   font-family:serif;
   color: #6E2F41
 }
+/*her slutter css'en for varer siden, jeg har i tillegg brukt a, img, p */
 
-.bilderForside, .varerNavn, .varerInformasjon{
-  grid-column: span 4;
-}
-
+/*Her starter css'en for produkt siden*/
 #mainprodukt {
   display: grid;
   grid-template-columns: repeat(5,1fr);
   grid-auto-rows: minmax(1px,auto);
   grid-gap: 0.5em;
-  margin-left: 3em;
-  margin-right: 3em;
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-top: 100px;
 }
-
+.lignendeProdukter {
+  grid-column: span 5;
+}
+.secLignendeProdukter {
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  grid-column-gap: 0.5em;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.andreFarger{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  margin-left: 200px;
+  margin-right: 200px;
+  grid-gap: 80px;
+  margin-top: 50px;
+}
 .stortbildeProdukt {
   grid-column: span 2;
   grid-row: span 2;
 }
-
 .litebildeProdukt {
   grid-column: span 1;
   grid-row: span 1;
 }
+.produkterInformasjon{
+  grid-column: span 2;
+  grid-row: span 2;
+  color: #6E2F41;
+}
+.navnProdukt{
+  font-size: 33px;
+  font-family: serif;
+  color: #6E2F41;
+  font-weight: bold;
+  font-style: italic;
+  text-align: center;
+  margin-bottom: 40px;
+}
+.merkeProdukt,.prisProdukt,.fargeProdukt{
+  margin-top: 10px;
+  font-size: 19px;
+}
+.fargeProdukt{
+  margin-bottom: 35px;
+}
+.valgProdukt{
+  font-size: 20px;
+  margin-bottom: 25px;
+  margin-top: 25px;
+}
+select {
+  width: 100%;
+  padding-top: 20px;
+  font-size: 15px;
+  padding-bottom:20px;
+  color:#986070;
+}
+.handlekurv{
+  text-align: center;
+  font-weight: bold;
+  font-size: 23px;
+  background-color:#986070;
+  color: white;
+  padding-top: 20px;
+  padding-bottom:20px;
+  margin-top: 40px;
+}
+/*Her slutter css'en for produktsiden, jeg har i tillegg brukt img,(stortekst,.lignendeProdukter)*/
 
-
+/*Her starter css'en for om oss siden*/
 .Omoss{
   margin-top: 130px;
   margin-left: 60px;
   margin-right: 60px;
   margin-bottom: 40px;
 }
-
-.pOmoss{
-  font-size: 18px;
-}
-
-h1{
-  color: #6E2F41;
+.Omoss_overskrift{
   font-size: 35px;
-}
-
-/*Produkter*/
-
-.merkeProdukt,.prisProdukt,.fargeProdukt{
-
-}
-
-.produkterInformasjon{
-  grid-column: span 2;
-  grid-row: span 2;
   color: #6E2F41;
 }
-
-.secProdukter {
-  grid-column: span 2;
-  grid-row: span 1;
-  display: grid;
+.Omoss_tekst{
+  font-size: 18px;
+  color: #6E2F41;
 }
+/*Her slutter css'en for os oss siden*/
 
-.secLignendeProdukter {
-  display: grid;
-  grid-template-columns: repeat(5,1fr);
-  grid-column-gap: 0.5em;
-}
-
+/*Her starter css'en for footer'en min, denne bruker jeg på bunnen av alle sidene mine.*/
 footer{
   background-color: #996574;
   margin-bottom: 30px;
+  margin-top: 3em;
 }
-
 footer>.bunn{
   display: grid;
   grid-template-columns: repeat(3,1fr);
   padding-top: 15px;
   padding-bottom: 15px;
 }
-
 .bunn2{
   text-align: center;
   margin-top: 3px;
 }
-
 .bunntekst1{
   font-size: 18px;
   font-weight: bold;
   color: white;
   margin-bottom: 3px;
 }
-
 .bunntekst2{
   font-size: 15px;
   color: lightgrey;
 }
+/*Her slutter css'en for footer*/
+
+/*Her er css for mobilvennelig side*/
+@media(max-width:750px) {
+  img {
+    width: 100%;
+  }
+  #mainprodukt{
+    grid-template-columns: repeat(1,1fr);
+    margin: 0;
+  }
+  .secLignendeProdukter, #mainvarer{
+    grid-template-columns: repeat(2,1fr);
+  }
+  .stortekst {
+    grid-column: span 3;
+  }
+  .secHjem, .vareelement{
+    grid-template-columns: repeat(1,1fr);
+  }
+  .andreFarger{
+    grid-gap: 0.5em;
+    margin: 0;
+  }
+}
+/*her slutter css for mobilvennelig side*/

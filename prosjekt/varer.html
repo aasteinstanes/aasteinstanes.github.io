@@ -74,7 +74,6 @@
         </section>
       </section>
     </header>
-
     <main id="mainvarer">
 
     </main>
@@ -132,16 +131,16 @@
       let url = new URL(url_string);
       let id = url.searchParams.get("id");
 
-      function genererHTML(snapshot){
+      function genererHTML(snapshot) {
         let varer = snapshot.val();
         let key = snapshot.key;
         let parent = snapshot.ref.parent.key;
         main.innerHTML +=`
           <a class="vareelement" href="produkt.html?id=${key}&parent=${parent}">
             <div class="varerNavn">
-              <h1 id="navnvare">${varer.Navn}</h1>
+              <div id="navnVare">${varer.Navn}</div>
             </div>
-            <div class="bilderForside">
+            <div class="varerBilde">
               <img src="${varer.Bilde1}">
             </div>
             <div class="varerInformasjon">
@@ -153,7 +152,7 @@
         `;
       };
 
-      function visAlle(){
+      function visAlle() {
         main.innerHTML = "";
         genser
           .on("child_added",genererHTML);
@@ -165,183 +164,163 @@
           .on("child_added",genererHTML);
       };
 
-      function alleGensere(){
+      function alleGensere() {
         main.innerHTML = "";
         genser
           .on("child_added",genererHTML);
       };
 
-      function genserPris(){
+      function genserPris() {
         main.innerHTML = "";
         genser
           .orderByChild("Pris")
-          .endAt(1000)
-          .on("child_added",genererHTML);
-        genser
-          .orderByChild("Pris")
-          .startAt(1000)
           .on("child_added",genererHTML);
       };
 
-      function genserNavn(){
+      function genserNavn() {
         main.innerHTML = "";
         genser
           .orderByChild("Navn")
           .on("child_added",genererHTML);
       };
 
-      function genserMerke(){
+      function genserMerke() {
         main.innerHTML = "";
         genser
           .orderByChild("Merke")
           .on("child_added",genererHTML);
       };
 
-      function alleKjoler(){
+      function alleKjoler() {
         main.innerHTML = "";
         kjole
           .on("child_added",genererHTML);
       };
 
-      function kjolePris(){
+      function kjolePris() {
         main.innerHTML = "";
         kjole
           .orderByChild("Pris")
-          .endAt(1000)
-          .on("child_added",genererHTML);
-        kjole
-          .orderByChild("Pris")
-          .startAt(1000)
           .on("child_added",genererHTML);
       };
 
-      function kjoleNavn(){
+      function kjoleNavn() {
         main.innerHTML = "";
         kjole
           .orderByChild("Navn")
           .on("child_added",genererHTML);
       };
 
-      function kjoleMerke(){
+      function kjoleMerke() {
         main.innerHTML = "";
         kjole
           .orderByChild("Merke")
           .on("child_added",genererHTML);
       };
 
-      function alleBukser(){
+      function alleBukser() {
         main.innerHTML = "";
         bukse
           .on("child_added",genererHTML);
       };
 
-      function buksePris(){
+      function buksePris() {
         main.innerHTML = "";
         bukse
           .orderByChild("Pris")
-          .endAt(1000)
-          .on("child_added",genererHTML);
-        bukse
-          .orderByChild("Pris")
-          .startAt(1000)
           .on("child_added",genererHTML);
       };
 
-      function bukseNavn(){
+      function bukseNavn() {
         main.innerHTML = "";
         bukse
           .orderByChild("Navn")
           .on("child_added",genererHTML);
       };
 
-      function bukseMerke(){
+      function bukseMerke() {
         main.innerHTML = "";
         bukse
           .orderByChild("Merke")
           .on("child_added",genererHTML);
       };
 
-      function alleSko(){
+      function alleSko() {
         main.innerHTML = "";
         sko
           .on("child_added",genererHTML);
       };
 
-      function skoPris(){
+      function skoPris() {
         main.innerHTML = "";
         sko
           .orderByChild("Pris")
-          .endAt(1000)
-          .on("child_added",genererHTML);
-        sko
-          .orderByChild("Pris")
-          .startAt(1000)
           .on("child_added",genererHTML);
       };
 
-      function skoNavn(){
+      function skoNavn() {
         main.innerHTML = "";
         sko
           .orderByChild("Navn")
           .on("child_added",genererHTML);
       };
 
-      function skoMerke(){
+      function skoMerke() {
         main.innerHTML = "";
         sko
           .orderByChild("Merke")
           .on("child_added",genererHTML);
       };
 
-      if(id === "genser"){
+      if (id === "genser"){
         alleGensere();
       }
-      else if(id === "genserpris"){
+      else if (id === "genserpris"){
         genserPris();
       }
-      else if(id === "gensernavn"){
+      else if (id === "gensernavn"){
         genserNavn();
       }
-      else if(id === "gensermerke"){
+      else if (id === "gensermerke"){
         genserMerke();
       }
-      else if(id === "kjole"){
+      else if (id === "kjole"){
         alleKjoler();
       }
-      else if(id === "kjolepris"){
+      else if (id === "kjolepris"){
         kjolePris();
       }
-      else if(id === "kjolenavn"){
+      else if (id === "kjolenavn"){
         kjoleNavn();
       }
-      else if(id === "kjolemerke"){
+      else if (id === "kjolemerke"){
         kjoleMerke();
       }
-      else if(id === "bukse"){
+      else if (id === "bukse"){
         alleBukser();
       }
-      else if(id === "buksepris"){
+      else if (id === "buksepris"){
         buksePris();
       }
-      else if(id === "buksenavn"){
+      else if (id === "buksenavn"){
         bukseNavn();
       }
-      else if(id === "buksemerke"){
+      else if (id === "buksemerke"){
         bukseMerke();
       }
-      else if(id === "sko"){
+      else if (id === "sko"){
         alleSko();
       }
-      else if(id === "skopris"){
+      else if (id === "skopris"){
         skoPris();
       }
-      else if(id === "skonavn"){
+      else if (id === "skonavn"){
         skoNavn();
       }
-      else if(id === "skomerke"){
+      else if (id === "skomerke"){
         skoMerke();
       }
-      else{
+      else {
         visAlle();
       };
     </script>

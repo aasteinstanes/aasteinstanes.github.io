@@ -77,32 +77,31 @@
     <main>
       <section class="tre">
         <section class="stortbilde">
-          <img src="bilder_forside/bilde1.jpg" alt="høstnyheter">
+          <a href="varer.html?id=kjole"><img src="bilder_forside/bilde1.jpg" alt="høstnyheter"></a>
         </section>
         <section class="litebilde">
-          <img src="bilder_forside/bilde2.jpg" alt="vinterjakke">
+          <a href="varer.html?id=genser"><img src="bilder_forside/bilde2.jpg" alt="vinterjakke"></a>
         </section>
         <section class="litebilde">
-          <img src="bilder_forside/bilde3.jpg" alt="sko">
+          <a href="varer.html?id=sko"><img src="bilder_forside/bilde3.jpg" alt="sko"></a>
         </section>
-
         <section class="stortekst">Toppselgere</section>
         <section class="secHjem">
 
         </section>
         <section class="litebilde">
           <div class="bildeforside">
-            <img src="bilder_forside/bilde4.jpg" alt="sommerkjoler"></a>
+            <a href="varer.html?id=kjole"><img src="bilder_forside/bilde4.jpg" alt="sommerkjoler"></a>
           </div>
         </section>
         <section class="litebilde">
           <div class="bildeforside">
-            <img src="bilder_forside/bilde5.jpg" alt="festkjole"></a>
+            <a href="varer.html?id=kjole"><img src="bilder_forside/bilde5.jpg" alt="festkjole"></a>
           </div>
         </section>
         <section class="litebilde">
           <div class="bildeforside">
-            <img src="bilder_forside/bilde6.jpg" alt="sesongens bukser"></a>
+            <a href="varer.html?id=bukse"><img src="bilder_forside/bilde6.jpg" alt="sesongens bukser"></a>
           </div>
         </section>
       </section>
@@ -161,7 +160,7 @@
       let url = new URL(url_string);
       let id = url.searchParams.get("id");
 
-      function genererHTML(snapshot){
+      function genererHTML(snapshot) {
         let varer = snapshot.val();
         let key = snapshot.key;
         let parent = snapshot.ref.parent.key;
@@ -178,7 +177,7 @@
         `;
       };
 
-      function visAlle(){
+      function visAlle() {
         genser
           .orderByChild("Navn")
           .limitToFirst(1)

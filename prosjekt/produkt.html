@@ -80,6 +80,10 @@
       <section id="mainprodukt">
 
       </section>
+      <section class="overskriftAndreFarger"></section>
+      <section class="andreFarger">
+
+      </section>
       <section class="lignendeProdukter">Lignende produkter</section>
       <section class="secLignendeProdukter">
 
@@ -128,6 +132,8 @@
     <script>
       const main = document.querySelector("#mainprodukt");
       const secLignendeProdukter = document.querySelector(".secLignendeProdukter");
+      const andreFarger = document.querySelector(".andreFarger");
+      const overskriftAndreFarger = document.querySelector(".overskriftAndreFarger");
 
       const db = firebase.database();
       const genser = db.ref("varer/genser");
@@ -143,7 +149,7 @@
       const valgtProdukt = db.ref("varer/" + parentId + "/" + id );
       valgtProdukt.on("value",genererVare);
 
-      function genererVare(snapshot){
+      function genererVare(snapshot) {
         let varer = snapshot.val();
         if (varer.Farge2 === ""){
           Farger = `Farge: `;
@@ -167,30 +173,36 @@
             <img src="${varer.Bilde2}">
           </section>
           <section class="produkterInformasjon">
-            <h1 class="navnvare">${varer.Navn}</h1>
-            <div class="varerProdukt">${varer.Merke}</div>
-            <div class"prisProdukt">${Number(varer.Pris)} kr</div>
-            <div class"fargeProdukt">${Farger}${varer.Farge1}${Farge2}${Farge3}</div>
-            <div class="skjema">
-              <form>
-                <div>Produktet er tilgjengelig i disse størrelsene:</div>
-                <select name="stoerrelse" required>
-                  <option value="">Størrelse</option>
-                  <option value="XS">XS</option>
-                  <option value="S">S</option>
-                  <option value="M">M</option>
-                  <option value="L">L</option>
-                  <option value="XL">XL</option>
+            <div class="navnProdukt">${varer.Navn}</div>
+            <div class="merkeProdukt">${varer.Merke}</div>
+            <div class="prisProdukt">${Number(varer.Pris)} kr</div>
+            <div class="fargeProdukt">${Farger}${varer.Farge1}${Farge2}${Farge3}</div>
+            <div>
+              <form id="form">
+                <div class="valgProdukt">
+                  <div>Produktet er tilgjengelig i disse størrelsene:</div>
+                  <select name="stoerrelse" required>
+                    <option value="">Størrelse</option>
+                    <option value="XS">XS</option>
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                  </div>
                 </select>
-                <div>Hvor mange ønsker du å kjøpe?</div>
-                <select name="antall" required>
-                  <option value="">Antall</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                </select>
-                <button type="reset">Legg til i handlekurv</button>
+                <div class="valgProdukt">
+                  <div>Hvor mange ønsker du å kjøpe?</div>
+                  <section class="valgProdukt2">
+                    <select name="antall" required>
+                      <option value="">Antall</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                    </select>
+                  </section>
+                  </div>
+                <div class="handlekurv">Legg til i handlekurv</div> <!-- Handlekurven min er ingen knapp fordi jeg ikke har en handlekurv -->
               </form>
             </div>
           </section>
@@ -200,7 +212,7 @@
         `;
       };
 
-      function genererHTML(snapshot){
+      function genererHTML(snapshot) {
         let varer = snapshot.val();
         let key = snapshot.key;
         let parent = snapshot.ref.parent.key;
@@ -217,7 +229,241 @@
         `;
       };
 
-      function lignendeProdukter(){
+      function genererAndreFarger(snapshot) {
+        let varer = snapshot.val();
+        let key = snapshot.key;
+        let parent = snapshot.ref.parent.key;
+        andreFarger.innerHTML += `
+          <section class="litebilde">
+              <div class="bildetopp">
+                <a href="produkt.html?id=${key}&parent=${parent}"><img src="${varer.Bilde1}" alt="${parent}"></a>
+              </div>
+            <section class="teksttopp">
+              <div class="tekstnavn">${varer.Navn}</div>
+              <div class="tekstpris">${Number(varer.Pris)} kr</div>
+            </section>
+          </section>
+        `;
+      };
+
+      function produkterAndreFarger() {
+        if (id === "genser005") {
+          genser
+            .orderByChild("Navn")
+            .equalTo("Colorblock Sweat")
+            .on("child_added",genererAndreFarger);
+          overskriftAndreFarger.innerHTML = `<section class="lignendeProdukter">Andre farger</section>`;
+        }
+        else if (id === "genser012") {
+          genser
+            .orderByChild("Navn")
+            .equalTo("Colorblock Sweat")
+            .on("child_added",genererAndreFarger);
+          overskriftAndreFarger.innerHTML = `<section class="lignendeProdukter">Andre farger</section>`;
+        }
+        else if (id === "genser001") {
+          genser
+            .orderByChild("Navn")
+            .equalTo("Pattern Detail Knit")
+            .on("child_added",genererAndreFarger);
+          overskriftAndreFarger.innerHTML = `<section class="lignendeProdukter">Andre farger</section>`;
+        }
+        else if (id === "genser003") {
+          genser
+            .orderByChild("Navn")
+            .equalTo("Pattern Detail Knit")
+            .on("child_added",genererAndreFarger);
+          overskriftAndreFarger.innerHTML = `<section class="lignendeProdukter">Andre farger</section>`;
+        }
+        else if (id === "genser015") {
+          genser
+            .orderByChild("Navn")
+            .equalTo("Pattern Detail Knit")
+            .on("child_added",genererAndreFarger);
+          overskriftAndreFarger.innerHTML = `<section class="lignendeProdukter">Andre farger</section>`;
+        }
+        else if (id === "genser004") {
+          genser
+            .orderByChild("Navn")
+            .equalTo("Puffy V Neck Crop Sweat")
+            .on("child_added",genererAndreFarger);
+          overskriftAndreFarger.innerHTML = `<section class="lignendeProdukter">Andre farger</section>`;
+        }
+        else if (id === "genser011") {
+          genser
+            .orderByChild("Navn")
+            .equalTo("Puffy V Neck Crop Sweat")
+            .on("child_added",genererAndreFarger);
+          overskriftAndreFarger.innerHTML = `<section class="lignendeProdukter">Andre farger</section>`;
+        }
+        else if (id === "genser007") {
+          genser
+            .orderByChild("Navn")
+            .equalTo("Rolla Rollneck")
+            .on("child_added",genererAndreFarger);
+          overskriftAndreFarger.innerHTML = `<section class="lignendeProdukter">Andre farger</section>`;
+        }
+        else if (id === "genser013") {
+          genser
+            .orderByChild("Navn")
+            .equalTo("Rolla Rollneck")
+            .on("child_added",genererAndreFarger);
+          overskriftAndreFarger.innerHTML = `<section class="lignendeProdukter">Andre farger</section>`;
+        }
+        else if (id === "genser002") {
+          genser
+            .orderByChild("Navn")
+            .equalTo("Through The Hood Sweat")
+            .on("child_added",genererAndreFarger);
+          overskriftAndreFarger.innerHTML = `<section class="lignendeProdukter">Andre farger</section>`;
+        }
+        else if (id === "genser010") {
+          genser
+            .orderByChild("Navn")
+            .equalTo("Through The Hood Sweat")
+            .on("child_added",genererAndreFarger);
+          overskriftAndreFarger.innerHTML = `<section class="lignendeProdukter">Andre farger</section>`;
+        }
+        else if (id === "kjole010") {
+          kjole
+            .orderByChild("Navn")
+            .equalTo("My Perfect Polo Midi Dress")
+            .on("child_added",genererAndreFarger);
+          overskriftAndreFarger.innerHTML = `<section class="lignendeProdukter">Andre farger</section>`;
+        }
+        else if (id === "kjole013") {
+          kjole
+            .orderByChild("Navn")
+            .equalTo("My Perfect Polo Midi Dress")
+            .on("child_added",genererAndreFarger);
+          overskriftAndreFarger.innerHTML = `<section class="lignendeProdukter">Andre farger</section>`;
+        }
+        else if (id === "kjole004") {
+          kjole
+            .orderByChild("Navn")
+            .equalTo("Off Duty Dress")
+            .on("child_added",genererAndreFarger);
+          overskriftAndreFarger.innerHTML = `<section class="lignendeProdukter">Andre farger</section>`;
+        }
+        else if (id === "kjole008") {
+          kjole
+            .orderByChild("Navn")
+            .equalTo("Off Duty Dress")
+            .on("child_added",genererAndreFarger);
+          overskriftAndreFarger.innerHTML = `<section class="lignendeProdukter">Andre farger</section>`;
+        }
+        else if (id === "kjole014") {
+          kjole
+            .orderByChild("Navn")
+            .equalTo("Short Sleeve Frill Dress")
+            .on("child_added",genererAndreFarger);
+          overskriftAndreFarger.innerHTML = `<section class="lignendeProdukter">Andre farger</section>`;
+        }
+        else if (id === "kjole015") {
+          kjole
+            .orderByChild("Navn")
+            .equalTo("Short Sleeve Frill Dress")
+            .on("child_added",genererAndreFarger);
+          overskriftAndreFarger.innerHTML = `<section class="lignendeProdukter">Andre farger</section>`;
+        }
+        else if (id === "kjole001") {
+          kjole
+            .orderByChild("Navn")
+            .equalTo("Soft Off Shoulder Dress")
+            .on("child_added",genererAndreFarger);
+          overskriftAndreFarger.innerHTML = `<section class="lignendeProdukter">Andre farger</section>`;
+        }
+        else if (id === "kjole005") {
+          kjole
+            .orderByChild("Navn")
+            .equalTo("Soft Off Shoulder Dress")
+            .on("child_added",genererAndreFarger);
+          overskriftAndreFarger.innerHTML = `<section class="lignendeProdukter">Andre farger</section>`;
+        }
+        else if (id === "kjole011") {
+          kjole
+            .orderByChild("Navn")
+            .equalTo("Soft Off Shoulder Dress")
+            .on("child_added",genererAndreFarger);
+          overskriftAndreFarger.innerHTML = `<section class="lignendeProdukter">Andre farger</section>`;
+        }
+        else if (id === "bukse003") {
+          bukse
+            .orderByChild("Navn")
+            .equalTo("Crepe Straight Pants")
+            .on("child_added",genererAndreFarger);
+          overskriftAndreFarger.innerHTML = `<section class="lignendeProdukter">Andre farger</section>`;
+        }
+        else if (id === "bukse006") {
+          bukse
+            .orderByChild("Navn")
+            .equalTo("Crepe Straight Pants")
+            .on("child_added",genererAndreFarger);
+          overskriftAndreFarger.innerHTML = `<section class="lignendeProdukter">Andre farger</section>`;
+        }
+        else if (id === "bukse007") {
+          bukse
+            .orderByChild("Navn")
+            .equalTo("High Waist Vintage Denim")
+            .on("child_added",genererAndreFarger);
+          overskriftAndreFarger.innerHTML = `<section class="lignendeProdukter">Andre farger</section>`;
+        }
+        else if (id === "bukse010") {
+          bukse
+            .orderByChild("Navn")
+            .equalTo("High Waist Vintage Denim")
+            .on("child_added",genererAndreFarger);
+          overskriftAndreFarger.innerHTML = `<section class="lignendeProdukter">Andre farger</section>`;
+        }
+        else if (id === "bukse008") {
+          bukse
+            .orderByChild("Navn")
+            .equalTo("Macy")
+            .on("child_added",genererAndreFarger);
+          overskriftAndreFarger.innerHTML = `<section class="lignendeProdukter">Andre farger</section>`;
+        }
+        else if (id === "bukse011") {
+          bukse
+            .orderByChild("Navn")
+            .equalTo("Macy")
+            .on("child_added",genererAndreFarger);
+          overskriftAndreFarger.innerHTML = `<section class="lignendeProdukter">Andre farger</section>`;
+        }
+        else if (id === "sko005") {
+          sko
+            .orderByChild("Navn")
+            .equalTo("2790 Acotw")
+            .on("child_added",genererAndreFarger);
+          overskriftAndreFarger.innerHTML = `<section class="lignendeProdukter">Andre farger</section>`;
+        }
+        else if (id === "sko010") {
+          sko
+            .orderByChild("Navn")
+            .equalTo("2790 Acotw")
+            .on("child_added",genererAndreFarger);
+          overskriftAndreFarger.innerHTML = `<section class="lignendeProdukter">Andre farger</section>`;
+        }
+        else if (id === "sko009") {
+          sko
+            .orderByChild("Navn")
+            .equalTo("Flirty Wave Sneaker")
+            .on("child_added",genererAndreFarger);
+          overskriftAndreFarger.innerHTML = `<section class="lignendeProdukter">Andre farger</section>`;
+      }
+        else if (id === "sko013") {
+          sko
+            .orderByChild("Navn")
+            .equalTo("Flirty Wave Sneaker")
+            .on("child_added",genererAndreFarger);
+          overskriftAndreFarger.innerHTML = `<section class="lignendeProdukter">Andre farger</section>`;
+        }
+        else {
+          andreFarger.innerHTML = "";
+          overskriftAndreFarger.innerHTML = "";
+        };
+      };
+
+      function lignendeProdukter() {
         genser
           .limitToFirst(1)
           .on("child_added",genererHTML);
@@ -232,6 +478,7 @@
           .on("child_added",genererHTML);
       };
 
+      produkterAndreFarger();
       lignendeProdukter();
     </script>
   </body>
