@@ -1,0 +1,62 @@
+main{
+  background-color: #DAF9C4;
+  padding: 30px;
+}
+
+.intro{
+  font-size: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.overskrift{
+  text-align: center;
+  font-size: 30px;
+  margin-top: 27px;
+  padding-bottom: 25px;
+  color: #5C754A;
+}
+
+.to{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  grid-column-gap: 6em;
+  margin-left: 110px;
+  margin-right: 110px;
+}
+
+.to>.overskrift,.tekst{
+  background-color: #B1C6A3;
+}
+
+.to>.overskrift{
+  padding-top: 20px;
+}
+
+.tekst{
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-bottom: 25px;
+}
+
+.nettsider{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 60px;
+  text-decoration: none;
+  text-align: center;
+  font-size: 20px;
+  color: #5C754A;
+}
+.fysisksignalLink{
+  text-align: center;
+  font-size: 20px;
+}
+.tilbake{
+  margin-left: 30px;
+  margin-top: 40px;
+  font-size: 19px;
+  text-decoration: none;
+}
